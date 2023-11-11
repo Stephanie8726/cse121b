@@ -12,12 +12,6 @@ const foodElement = document.getElementById('food');
 const yearElement = document.querySelector('#year');
 const imageElement = document.getElementById('image');
 
-// console.log('foodElement', foodElement);
-// console.log('profilePicture', profilePicture);
-// console.log('imageElement', imageElement);
-
-// foodElement.innerHTML = 'Hello World';
-
 /* Step 4 - Adding Content */
 nameElement.innerHTML = `<strong>${fullName}</strong>`;
 imageElement.setAttribute('src', profilePicture);
