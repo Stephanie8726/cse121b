@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Fecth Activities</title>
-    <script scr="fetch.js"></script>
-</head>
-<body>
-    
-</body>
+<html>
+  <head>
+    <script>
+      const apiKey = "AIzaSyCAC8eP20iVmcCd6y-W3WTnCEgZmLId0M0";
+      const queryAddress = "241 N Vine St C258Z, Salt Lake City, UT, USA";
+      const queryLatLong = "40.7739995, -111.8922111";
+
+      const getGeocodingAddressUrl = (address, key) => {
+          return `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${key}`;
+      }
+      const getGeocodingLatLongUrl = (latLong, key) => {
+          return `https://maps.googleapis.com/maps/api/geocode/json?latlng=${encodeURIComponent(latLong)}&key=${key}`;
+      }
+
+      const sendAddressRequest = () => {
+          const url = getGeocodingAddressUrl(queryAddress, apiKey);
+          fetch(url).then( res => res.json()).then( response => console.log('Address Request:', response));
+      }
+
+      const sendLatLongRequest = () => {
+          const url = getGeocodingLatLongUrl(queryLatLong, apiKey);
+          fetch(url).then( res => res.json()).then( response => console.log('Lat long request:', response));
+      }
+
+      sendAddressRequest();
+      sendLatLongRequest();
+    </script>
+  </head>
+  <body><img src="https://www.pbs.org/wnet/nature/files/1996/11/pexels-mali-maeder-110820-610x343.png" /></body>
 </html>
